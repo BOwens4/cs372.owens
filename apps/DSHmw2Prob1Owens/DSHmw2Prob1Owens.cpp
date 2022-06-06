@@ -13,6 +13,7 @@ public:
 		arr = new T[1];
 		vCapacity = 1;
 		length = 0;
+		size_t = sizeof(arr);
 	}
 	~array() {
 		delete[] arr;
@@ -95,6 +96,7 @@ public:
 		arr = new T[1];
 		vCapacity = 1;
 		length = 1;
+		size_t = 1;
 		for (int i = 0; i < source.size(); i++) {
 			push_back(source.at(i));
 		}
