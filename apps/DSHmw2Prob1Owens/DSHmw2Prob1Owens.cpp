@@ -7,14 +7,14 @@
 #include <iostream>
 
 template <typename T>
-class vector {
+class array {
 public:
-	vector() {
+	array() {
 		arr = new T[1];
 		vCapacity = 1;
 		length = 0;
 	}
-	~vector() {
+	~array() {
 		delete[] arr;
 		arr = nullptr;
 	}
@@ -40,7 +40,7 @@ public:
 
 	T& at(int index) {
 		if (index < 0 || index > length) {
-			std::cerr << "Vector: index out of bounds on access" << std::endl;
+			std::cerr << "array: index out of bounds on access" << std::endl;
 			exit(1);
 		}
 		else {
@@ -63,7 +63,7 @@ public:
 		std::cout << std::endl;
 	}
 
-	bool operator==(vector& other) const {
+	bool operator==(array& other) const {
 		if (other.size() != length) {
 			return false;
 		}
@@ -79,12 +79,12 @@ public:
 
 	T& operator[](int i) {
 		if ((i < 0) || (i >= length)) {
-			std::cerr << std::endl << "Vector index out of bounds" << std::endl;
+			std::cerr << std::endl << "array index out of bounds" << std::endl;
 		}
 		return at(i);
 	}
 
-	vector& operator=(const vector& source) {
+	array& operator=(const array& source) {
 		// Do a self check.
 		if (this == &source)
 		{
@@ -116,7 +116,7 @@ private:
 			arr = temp;
 		}
 		else {
-			std::cerr << "vector::expand: new capacity is less than equal to current\n";
+			std::cerr << "array::expand: new capacity is less than equal to current\n";
 		}
 	}
 };
