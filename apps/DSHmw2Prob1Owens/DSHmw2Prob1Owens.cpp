@@ -106,6 +106,7 @@ private:
 	T* arr = new T[1];
 	int vCapacity = 1;
 	int length = 1;
+	int size_t = 1;
 
 	void expand(int newCapacity) {
 		if (newCapacity > vCapacity) {
