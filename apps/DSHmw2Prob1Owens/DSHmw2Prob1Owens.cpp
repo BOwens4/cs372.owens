@@ -7,21 +7,21 @@
 #include <iostream>
 
 template <typename T>
-class array {
+class vector {
 public:
-	array() {
+	vector() {
 		arr = new T[1];
 		vCapacity = 1;
 		length = 0;
 	}
-	~array() {
+	~vector() {
 		delete[] arr;
 		arr = nullptr;
 	}
 
 	void put(T data, int index) {
 		if (index == vCapacity) {
-			push_back(T data);
+			push_back(data);
 		}
 		else {
 			arr[index] = data;
@@ -40,7 +40,7 @@ public:
 
 	T& at(int index) {
 		if (index < 0 || index > length) {
-			cerr << "array: index out of bounds on access" << endl;
+			std::cerr << "Vector: index out of bounds on access" << std::endl;
 			exit(1);
 		}
 		else {
@@ -58,12 +58,12 @@ public:
 
 	void traverse() {
 		for (int i = 0; i < length; i++) {
-			cout << arr[i] << endl;
+			std::cout << arr[i] << std::endl;
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
 
-	bool operator==(array& other) const {
+	bool operator==(vector& other) const {
 		if (other.size() != length) {
 			return false;
 		}
@@ -79,12 +79,12 @@ public:
 
 	T& operator[](int i) {
 		if ((i < 0) || (i >= length)) {
-			cerr << endl << "array index out of bounds" << endl;
+			std::cerr << std::endl << "Vector index out of bounds" << std::endl;
 		}
 		return at(i);
 	}
 
-	array& operator=(const array& source) {
+	vector& operator=(const vector& source) {
 		// Do a self check.
 		if (this == &source)
 		{
@@ -116,7 +116,7 @@ private:
 			arr = temp;
 		}
 		else {
-			std::cerr << "array::expand: new capacity is less than equal to current\n";
+			std::cerr << "vector::expand: new capacity is less than equal to current\n";
 		}
 	}
-}
+};
