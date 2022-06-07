@@ -2,11 +2,11 @@
 // Braden Owens
 // 5/23/2022
 // Circular List implementation of Lists
-//I know I link the 
+//I know I link the front to the back and back to the front node of the list, but I am not really sure on how to implement this
 #pragma once
 #include <iostream>
 template <typename T>
-class LinkedList
+class CircularLinkedList
 {
 private:
     class Node {
@@ -17,38 +17,38 @@ private:
     };
     Node* head = nullptr;
     Node* tail = nullptr;
-    void setupLinkedList() {
+    void setupCircularLinkedList() {
         Node* newNode = new Node();
         newNode->next = nullptr;
         newNode->prev = nullptr;
         head = newNode;
         tail = newNode;
     }
-    void deleteLinkedListContents() {
+    void deleteCircularLinkedListContents() {
         Node* temp = nullptr;
         Node* current = head;
-        while (current != nullptr) {
+        while (current != tail) {
             temp = current->next;
             delete current;
             current = temp;
         }
     }
 public:
-    LinkedList() : head(nullptr), tail(nullptr) {}
+    CircularLinkedList() : head(nullptr), tail(nullptr) {}
 
-    LinkedList(T newData) {
-        setupLinkedList();
+    CircularLinkedList(T newData) {
+        setupCircularLinkedList();
         head->data = newData;
     }
 
-    LinkedList(LinkedList& rhs) { // copy constructor
-        deleteLinkedListContents();
+    CircularLinkedList(CircularLinkedList& rhs) { // copy constructor
+        deleteCircularLinkedListContents();
         head = rhs.head;
         tail = rhs.tail;
     }
 
-    ~LinkedList() {// And a destructor
-        deleteLinkedListContents();
+    ~CircularLinkedList() {// And a destructor
+        deleteCircularLinkedListContents();
     }
 
     bool  empty() {
@@ -59,7 +59,7 @@ public:
         Node* newNode = new Node();
         newNode->data = data;
         newNode->next = head;
-        newNode->prev = nullptr;
+        newNode->prev = tail;
         if (empty()) {
             head = newNode;
             tail = newNode;
@@ -87,9 +87,9 @@ public:
 
     void pop_back() {
         Node* lastNode = tail;
-        if (lastNode != nullptr) {
+        if (lastNode != head) {
             tail = tail->prev;
-            tail->next = nullptr;
+            tail->next = head;
             delete lastNode;
         }
     }
@@ -100,7 +100,7 @@ public:
         }
         else {
             // This is drastic, and should be handled using an exception handler
-            std::cout << "Exception: LinkedList is empty." << std::endl;
+            std::cout << "Exception: CircularLinkedList is empty." << std::endl;
             exit(1);
         }
     }
@@ -111,16 +111,24 @@ public:
         }
         else {
             // This is drastic, and should be handled using an exception handler
-            std::cout << "Exception: LinkedList is empty." << std::endl;
+            std::cout << "Exception: CircularLinkedList is empty." << std::endl;
             exit(1);
         }
     }
 
     void traverse(void (*doIt)(T& data)) {
         Node* current = head;
-        while (current != nullptr) {
-            doIt(current->data);
-            current = current->next;
+        if (head == tail) {
+            doIt(head->data);
+        }
+        else
+        {
+            while (current != tail)
+            {
+                doIt(current->data);
+                current = current->next;
+            }
+            doIt(tail->data)
         }
     }
 };
