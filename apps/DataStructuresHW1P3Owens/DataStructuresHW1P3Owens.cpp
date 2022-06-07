@@ -1,11 +1,12 @@
-// Homework 1 Problem 1 Data Structures
+// Homework 1 Problem 3 Data Structures
 // Braden Owens
 // 5/23/2022
-// Circular List
+// Circular List implementation of Lists
+//I know I link the 
 #pragma once
 #include <iostream>
 template <typename T>
-class List
+class LinkedList
 {
 private:
     class Node {
@@ -16,14 +17,14 @@ private:
     };
     Node* head = nullptr;
     Node* tail = nullptr;
-    void setupList() {
+    void setupLinkedList() {
         Node* newNode = new Node();
         newNode->next = nullptr;
         newNode->prev = nullptr;
         head = newNode;
         tail = newNode;
     }
-    void deleteListContents() {
+    void deleteLinkedListContents() {
         Node* temp = nullptr;
         Node* current = head;
         while (current != nullptr) {
@@ -33,21 +34,21 @@ private:
         }
     }
 public:
-    List() : head(nullptr), tail(nullptr) {}
+    LinkedList() : head(nullptr), tail(nullptr) {}
 
-    List(T newData) {
-        setupList();
+    LinkedList(T newData) {
+        setupLinkedList();
         head->data = newData;
     }
 
-    List(List& rhs) { // copy constructor
-        deleteListContents();
+    LinkedList(LinkedList& rhs) { // copy constructor
+        deleteLinkedListContents();
         head = rhs.head;
         tail = rhs.tail;
     }
 
-    ~List() {// And a destructor
-        deleteListContents();
+    ~LinkedList() {// And a destructor
+        deleteLinkedListContents();
     }
 
     bool  empty() {
@@ -99,7 +100,7 @@ public:
         }
         else {
             // This is drastic, and should be handled using an exception handler
-            std::cout << "Exception: list is empty." << std::endl;
+            std::cout << "Exception: LinkedList is empty." << std::endl;
             exit(1);
         }
     }
@@ -110,7 +111,7 @@ public:
         }
         else {
             // This is drastic, and should be handled using an exception handler
-            std::cout << "Exception: list is empty." << std::endl;
+            std::cout << "Exception: LinkedList is empty." << std::endl;
             exit(1);
         }
     }
