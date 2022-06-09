@@ -6,6 +6,11 @@
 #pragma once
 #include <iostream>
 
+// I took the code for vector and adapted the class names and variable names to fit the array class
+// I also added the size parameter to the constructors.
+//I was honestly a little confused on what you wanted out of this problem but this is what I thought to be correct.
+// Is there anything I missed linking what works for vectors to this new array class?
+
 template <typename T>
 class array {
 public:
