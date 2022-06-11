@@ -2,46 +2,43 @@
 // Braden Owens
 // 5/23/2022
 #include <iostream>
-#include <random>
 #include "vector.h"
 
-template <typename Thing>
-class Bag {
+template <typename Item>
+class Bagwithrcpts {
 public:
     bag() {
-        bagContents = new vector<Thing*>;
-        bagContents[0] = nullptr;
+        bagContents = new vector<Item*>;
+        bagContents[] = nullptr;
     }
     ~bag() {
         delete[] bagContents;
         bagContents = nullptr;
     }
-    int insert(Thing aThing) {
-        bagContents.push_back(&aThing);
-        int receipt = bagContents.size() - 1;
-        receipts.push_back(receipt);
-        return receipt;
+    int insert(Item aItem) {
+        bagContents.push_back(&aItem);
+        int rcpt = bagContents.size()--;
+        rcpts.push_back(rcpt);
+        return rcpt;
     }
-    Thing* pop(int receipt) {
-        Thing* ptrToAThing = nullptr;
+    Item& pop(int rcpt) {
+        Item* ptr = nullptr;
         int i = bagContents.size();
-        bool thingIsNull = true;
-        while (thingIsNull && (i > 0) && (receipts[i] != receipt) {
+        while ((i > 0) && (rcpts[i] != rcpt) {
             if (bagContents[i] != nullptr) {
-                ptrToAThing = bagContents[i];
-                thingIsNull = false;
-                receipt[i] = 0;
+                ptr = bagContents[i];
+                rcpt[i] = 0;
             }
         }
-        return ptrToAThing;
-    }
-    int size() {
-        return bagContents.capacity();
+        return ptr;
     }
     int count() {
         return bagContents.size();
     }
+    int size() {
+        return bagContents.capacity();
+    }
 private:
-    vector<Thing*>* bagContents;
-    vector<int>* receipts;
+    vector<int>* rcpts;
+    vector<Item*>* bagContents;
 }
