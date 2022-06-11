@@ -3,30 +3,15 @@
 // 5/23/2022
 //This is a program that will test the behavior of our bag class.
 
-#include <vector> 
-#include <gtest/gtest.h>
+
 #include "bag.h"
-// TEST: Confirm default constructor behaves correctly
-TEST(BagUnitTests, DefaultConstructor) {
-	Bag<int>* aBag = new Bag<int>();
-	EXPECT_FALSE(aBag == nullptr);
-	EXPECT_EQ(aBag->size(), 0);
-	EXPECT_EQ(aBag->count(42), 0);
-	delete aBag;
-}
-
-
-TEST(BagUnitests, InsertNewThing) {
-	Bag<int>* aBag = new Bag<int>();
-	EXPECT_FALSE(aBag == nullptr);
-	EXPECT_EQ(aBag->size(), 0);
-	EXPECT_EQ(aBag->count(10), 0);
-	aBag->insert(42);
-	EXPECT_EQ(aBag->size(), 1);
-	EXPECT_EQ(aBag->count(42), 1);
-	aBag->insert(59);
-	EXPECT_EQ(aBag->size(), 2);
-	EXPECT_EQ(aBag->count(59), 1);
-	delete aBag;
-
+int main()
+{
+	list<int> bagContents;
+// test to see what happens if you pop an empty bag
+	bagcontents.pop_back();
+// test to see what happens if you insert 53
+	bagcontents.insert(53);
+// test to see if the bag shows the correct amount
+	bagcontents.size();
 }

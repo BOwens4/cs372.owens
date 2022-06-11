@@ -1,15 +1,6 @@
 // Homework 2 Problem 4 Data Structures
 // Braden Owens
 // 5/23/2022
-
-
-//
-// File:   bag.h
-// Author: Your Glorious Instructor
-// Purpose:
-// Implement the Bag ADT.
-//
-#pragma once
 #include <iostream>
 #include <random>
 #include "vector.h"
@@ -27,7 +18,6 @@ public:
     }
     int insert(Thing aThing) {
         bagContents.push_back(&aThing);
-        // Just use the index of the thing as receipt
         int receipt = bagContents.size() - 1;
         receipts.push_back(receipt);
         return receipt;
