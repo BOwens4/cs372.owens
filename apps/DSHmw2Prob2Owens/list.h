@@ -95,6 +95,23 @@ public:
     }
   }
 
+  void delete()
+  {
+      Node* newNode = new Node();
+      if (new Node == tail)
+      {
+          delete tail;
+          tail = tail->prev;
+          tail->next = nullptr;
+      }
+      if (new Node == head)
+      {
+          delete head;
+          head = head->next;
+      }
+
+  }
+
   T &front() {
     if (!empty()) {
       return head->data;

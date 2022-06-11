@@ -1,6 +1,8 @@
 // Homework 2 Problem 2 Data Structures
 // Braden Owens
 // 5/23/2022
+// Besides changing the vector in private of this class, and adding a delete section to the list header included, this is all i know that needs to be changed in the code for it to work
+//Is there anything i am missing to make it work?
 
 #pragma once
 #include <iostream>
@@ -9,11 +11,11 @@
 template <typename Thing>
 class Bag {
 public:
-    void insert(Thing aThing) {
+    void push_back(Thing aThing) {
         bagContents.push_back(aThing);
         bagSize++;
     }
-    Thing& pop() {
+    Thing& pop_back() {
         Thing aThing;
         if (bagContents.size() > 0) {
             aThing = bagContents[bagSize];
@@ -37,6 +39,6 @@ public:
         return bagCount;
     }
 private:
-    vector<Thing> bagContents;
+    list<Thing> bagContents;
     int bagSize = 0;
 };
