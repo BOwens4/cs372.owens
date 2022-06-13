@@ -11,7 +11,8 @@
 # include <fstream>
 #include <iomanip>
 using namespace std;
-
+// The thing i struggled with most in this program is the act of marking things as done due to having to skip a couple characters in the file to get to the U or D. 
+// I tried to implement it the only way i know how, but it is still not correct. I am not sure what I am missing.
 
 int main()
 {
@@ -19,8 +20,10 @@ int main()
 	infile.open("tasks.txt");
 	int decision = 0;
 	string tasks;
+	string taskslist;
 	int userin = 0;
 	vector<string>tasks;
+	list<string>taskslist;
 	int totallines = 0;
 	while (getline(infile, tasks))
 	{
@@ -67,6 +70,12 @@ int main()
 			break;
 		case 3:
 			cout << "You have selected to mark a task as done!" << endl;
+			while (getline(infile, taskslist))
+			{
+				taskslist.push_back();
+			}
+
+			
 			break;
 		case 4: 
 			cout << "You have selected to exit the program." << endl;
