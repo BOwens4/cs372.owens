@@ -33,6 +33,14 @@ int main()
 		case 1:
 			cout << "You have selected to display all tasks!" << endl;
 			cout << "The following list below includes all tasks to complete for this assignment, whether done or undone." << endl;
+			if (infile.is_open())
+			{ 
+				string str;
+				while (infile)
+				{
+					str = infile.get();
+					cout << str;
+				}
 			break;
 		case 2:
 			cout << "You have selected to display a selected task!" << endl;
