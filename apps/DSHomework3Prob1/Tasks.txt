@@ -1,0 +1,10 @@
+1 U write name on assignment.
+2 U create header files needed.
+3 U create switch statement
+4 U implement all header files
+5 U exit menu
+6 U create virtual class
+7 U Modify Sequence container classes
+8 U save code.
+9 U commit code.
+10 U push code.
