@@ -95,8 +95,7 @@ int main()
 			vector<string>finished(taskslist.begin(), taskslist.end()); // copy the list to a vector for printing
 			while (ofile)
 			{
-				ofile >> finished;//prints the vector to the file
-				ofile >> endl;
+				ofile >> finished.traverse;//prints the vector to the file
 			}
 			break;
 		default:
