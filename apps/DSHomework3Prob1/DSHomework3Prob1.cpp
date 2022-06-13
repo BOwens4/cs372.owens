@@ -18,6 +18,8 @@ int main()
 {
 	ifstream infile("tasks.txt");
 	infile.open("tasks.txt");
+	ofstream ofile("tasks.txt");
+	ofile.open("tasks.txt");
 	int decision = 0;
 	string tasks;
 	string taskslist;
@@ -30,6 +32,10 @@ int main()
 		totallines++;
 		tasks.push_back()
 	}
+	while (getline(infile, taskslist))
+	{
+		taskslist.push_back();
+	}
 	cout << "Welcome to the Data Structures Task Manager Mr. Owens!" << endl;
 	cout << "This application allows you to track the tasks on your homework, because your grades make it evident you need it." << endl;
 	while (decision != 4) 
@@ -41,19 +47,18 @@ int main()
 		cout << "Option 3: Mark a specific task as done." << endl;
 		cout << "Option 4: Exit Task Manager"
 		cout << "--------------------------------------------------------------------------------------------------------" << endl;
+		int lengthtasks = tasks.length;
 
 		switch (decision) {
 		case 1:
 			cout << "You have selected to display all tasks!" << endl;
 			cout << "The following list below includes all tasks to complete for this assignment, whether done or undone." << endl;
-			cout << " There are " << tasks.length() << " task(s) in the task manager" << endl;
+			cout << " There are " << lengthtasks() << " task(s) in the task manager" << endl;
 			if (infile.is_open())
 			{ 
-				string str;
 				while (infile)
 				{
-					str = infile.get();
-					cout << str;
+					tasks.traverse();
 					cout << endl;
 				}
 			else
@@ -69,17 +74,18 @@ int main()
 			cout << tasks[userin];
 			break;
 		case 3:
+			//This is the biggest issue i faced was trying to figure out how to implement this case correctly
 			cout << "You have selected to mark a task as done!" << endl;
-			while (getline(infile, taskslist))
-			{
-				taskslist.push_back();
-			}
-
-			
+			int userin2 = 0;
+			cout << "Please enter the number of the task you would like to mark as done!" << endl;
+			cin >> userin2;
 			break;
 		case 4: 
 			cout << "You have selected to exit the program." << endl;
-
+			while (ofile)
+			{
+				ofile >> taskslist;
+			}
 			break;
 		default:
 			cout << "You have chosen a value that is not in the the menu. Please try again." << endl;
@@ -89,5 +95,6 @@ int main()
 	cout << "Thank you for using the task manager!" << endl;
 	cout << "Have a great day!" << endl;
 	infile.close("tasks.txt");
+	ofile.close("tasks.txt");
 	return 0;
 }
