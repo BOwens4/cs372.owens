@@ -1,17 +1,17 @@
 // This is my Queue Class
 #include "list.h"
 template <typename T>
-class Queue {
+class Queue:: Container {
 private:
-	List<T>* queueList; = new List<T>();
+	List<T>* queueList; = new Deque<T>();
 public:
 	Queue() {}
 	Queue(Queue& rhs) {}
-	~Queue() { delete queueList; }
-	bool empty() { return queueList.empty(); }
-	void push(T data) { queueList->push_front(data); }
-	T pop() { return queueList->pop_back() }
+	~Queue() { delete queueDeque; }
+	bool empty() { return queueDeque.empty(); }
+	void push(T data) { queueDeque.push_front(data); }
+	T pop() { return queueDeque.pop_back() }
 	void traverse(void (*doIt)(T data)) {
-		queueList->traverse(doIt);
+		queueDeque.traverse(doIt);
 	};
 }
