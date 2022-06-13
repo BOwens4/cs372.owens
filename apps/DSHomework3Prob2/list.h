@@ -8,7 +8,7 @@
 #include <iostream>
 #include "deque.h"
 template <typename T>
-class List
+class List :: public container
 {
 private:
     Deque<T>* aDeque; = new Deque<T>();
