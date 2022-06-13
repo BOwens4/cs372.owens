@@ -9,6 +9,7 @@
 # include <string>
 # include "tasks.txt"
 # include <fstream>
+#include <iomanip>
 using namespace std;
 
 
@@ -17,7 +18,15 @@ int main()
 	ifstream infile("tasks.txt");
 	infile.open("tasks.txt");
 	int decision = 0;
+	string tasks;
+	int userin = 0;
 	vector<string>tasks;
+	int totallines = 0;
+	while (getline(infile, tasks))
+	{
+		totallines++;
+		tasks.push_back()
+	}
 	cout << "Welcome to the Data Structures Task Manager Mr. Owens!" << endl;
 	cout << "This application allows you to track the tasks on your homework, because your grades make it evident you need it." << endl;
 	while (decision != 4) 
@@ -34,6 +43,7 @@ int main()
 		case 1:
 			cout << "You have selected to display all tasks!" << endl;
 			cout << "The following list below includes all tasks to complete for this assignment, whether done or undone." << endl;
+			cout << " There are " << tasks.length() << " task(s) in the task manager" << endl;
 			if (infile.is_open())
 			{ 
 				string str;
@@ -52,7 +62,8 @@ int main()
 		case 2:
 			cout << "You have selected to display a selected task!" << endl;
 			cout << "Please enter the number of the task you wish to view" << endl;
-
+			cin >> userin;
+			cout << tasks[userin];
 			break;
 		case 3:
 			cout << "You have selected to mark a task as done!" << endl;
