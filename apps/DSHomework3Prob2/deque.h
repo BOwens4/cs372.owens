@@ -1,5 +1,5 @@
 template <typename T>
-class Deque : public Container {
+class Deque : public Container, public iterator {
 private: 
 	class Node {
 		T data;
@@ -8,6 +8,7 @@ private:
 	Node* head = nullptr;
 	Node* tail = nullptr;
 public:
+	next() = 0;
 	Deque():
 	Deque(Deque& rhs);
 	void push_front(T data);
@@ -20,6 +21,6 @@ public:
 	bool empty() override;
 	void swap(Container&, Container&) override;
 	void clear() override;
-	return nullptr;
+	next()= nullptr;
 
 };

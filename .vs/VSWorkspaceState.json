@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DataStructuresHW1P1Owens",
-    "\\DataStructuresHW1P2Owens",
-    "\\DataStructuresHW1P3Owens",
-    "\\StarterCode"
+    "\\apps",
+    "\\apps\\DataStructuresHW1P2Owens",
+    "\\apps\\DSHmw2P3Owens",
+    "\\apps\\DSHomework3Prob1",
+    "\\apps\\DSHomework3Prob2"
   ],
+  "SelectedNode": "\\apps\\DSHomework3Prob1\\DSHomework3Prob1.cpp",
   "PreviewInSolutionExplorer": false
 }

@@ -64,7 +64,7 @@ int main()
 			cout << "The following list below includes all tasks to complete for this assignment" << endl;
 			cout << " There are " << lengthtasks() << " task(s) in the task manager" << endl;
 			if (infile.is_open())
-			{ 
+			{
 				while (infile)
 				{
 					tasks.traverse(); //traverses the vector and prints to the screen
@@ -90,7 +90,7 @@ int main()
 			//code here to change the U to a D? This is the part I cant wrap my head around
 			taskslist.pop_back(userin2); //pop it off the list before sending to the file
 			break;
-		case 4: 
+		case 4:
 			cout << "You have selected to exit the program." << endl;
 			vector<string>finished(taskslist.begin(), taskslist.end()); // copy the list to a vector for printing
 			while (ofile)
@@ -101,6 +101,7 @@ int main()
 		default:
 			cout << "You have chosen a value that is not in the the menu. Please try again." << endl;
 			break;
+			}
 		}
 	}
 	cout << "Thank you for using the task manager!" << endl;

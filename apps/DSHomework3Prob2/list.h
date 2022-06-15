@@ -8,11 +8,12 @@
 #include <iostream>
 #include "deque.h"
 template <typename T>
-class List :: public container
+class List :: public container, public iterator
 {
 private:
     Deque<T>* aDeque; = new Deque<T>();
 public:
+    next() = 0;
     Queue() {}
     Queue(Queue& rhs) {}
     ~Queue() { delete aDeque; }
@@ -22,6 +23,7 @@ public:
     void traverse(void(*doIt)(T data)) {
         aDeque.traverse(doIt);
     };
+    next() = nullptr;
 }
 
 

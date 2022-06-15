@@ -1,9 +1,10 @@
 #include "deque.h"
 template <typename T>
-class Stack::Container {
+class Stack::Container, iterator {
 private:
 	Deque<T>* stackDeque; = new Deque<T>();
 public:
+	next() = 0;
 	Stack() {}
 	Stack(Stack & rhs){}
 	~Stack() { delete stackDeque; }
@@ -17,4 +18,5 @@ public:
 	bool empty() override { return stackDeque.empty(); };
 	void swap(Container&, Container&) override;
 	void clear() override;
+	next() = nullptr;
 }
