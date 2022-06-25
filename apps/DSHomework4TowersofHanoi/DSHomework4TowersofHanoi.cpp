@@ -24,19 +24,10 @@ struct Stack* create(unsigned cap)
 	stack->cap = cap;
 	stack->top = -1;
 	stack->arr =
-		(int*)malloc(stack_ > cap * sizeof(int));
+		(int*)malloc(stack-> cap * sizeof(int));
 	return stack;
 }
-void moveDisksBetweenTwoPoles(struct Stack* src, struct Stack* dest, char s, char d)
-{
-	int p1topdisk = pop(src);
-	int p2topdisk = pop(dest);
 
-	if (p1topdisk == int_min)
-	{
-		push(src, p2topdisk)
-	}
-}
 int empty(struct Stack* stack)
 {
 	return(stack->top == -1);
@@ -61,6 +52,65 @@ void moveDisk(char fromPeg, char toPeg, int disk)
 {
 	cout << "Move disk" << disk << "from" << fromPeg << "to" << toPeg << endl;
 }
+void moveDisksBetweenTwoPoles(struct Stack* src, struct Stack* dest, char s, char d)
+{
+	int p1topdisk = pop(src);
+	int p2topdisk = pop(dest);
+
+	if (p1topdisk == INT_MIN)
+	{
+		push(src, p2topdisk);
+		moveDisk(d, s, p2topdisk);
+	}
+	else if (p2topdisk == INT_MIN)
+	{
+		push(dest, p1topdisk);
+		moveDisk(s, d, p1topdisk);
+	}
+	else if (p1topdisk > p2topdisk)
+	{
+		push(src, p1topdisk);
+		push(src, p2topdisk);
+		moveDisk(d, s, p2topdisk);
+	}
+	else
+	{
+		push(dest, p2topdisk);
+		push(dest, p1topdisk);
+		moveDisk(s, d, p1topdisk);
+	}
+}
+void movedisksiterative(int num_of_disks, struct Stack* src, struct Stack* aux, struct Stack* dest) {
+	int total_num_of_moves;
+	int i;
+	char s = 'X', d = 'Y', a = 'Z';
+
+	if (num_of_disks % 2 == 0) {
+		char temp = d;
+		d = a;
+		a = temp;
+	}
+	total_num_of_moves = pow(2, num_of_disks) - 1;
+
+	for (i = num_of_disks; i >= 1; i--) {
+		push(src, i);
+	}
+
+	for (i = 1; i <= total_num_of_moves; i++) {
+		if (i % 3 == 1) {
+			moveDisksBetweenTwoPoles(src, dest, s, d);
+		}
+
+		else if (i % 3 == 2) {
+			moveDisksBetweenTwoPoles(src, aux, s, a);
+		}
+
+		else if (i % 3 == 0) {
+			moveDisksBetweenTwoPoles(aux, dest, a, d);
+		}
+	}
+}
+
 int main()
 {
 	const int NUMDISKS = 5;
