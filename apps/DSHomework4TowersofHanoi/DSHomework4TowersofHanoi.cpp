@@ -2,13 +2,13 @@
 // 6/22/2022
 // Assignment 05
 // This program will show the recursive and iterative solutions to the towers of Hanoi problem, and test them
-
-#include <iostream>
 #include <chrono>
+#include <iostream>
 
 using namespace std;
-void moveDisksrecur(int, int, int, int);
-//void moveDisksiter(int, int, int, int);
+void moveDisksrecur(int, char, char, char);
+// code for iterative soln to work.
+
 struct Stack
 {
 	int top;
@@ -28,100 +28,145 @@ struct Stack* create(unsigned cap)
 	return stack;
 }
 
+// helper functions needed for iterative soln
 int empty(struct Stack* stack)
 {
 	return(stack->top == -1);
 }
+
+
 int pop(struct Stack* stack)
 {
 	if (empty(stack))
 		return INT_MIN;
 	return stack->arr[stack->top--];
 }
+
 void push(struct Stack* stack, int item)
 {
-	if (isFull(stack))
+	if (full(stack))
 		return;
 	stack-> arr[++stack->top] = item;
 }
+
 int full(struct Stack* stack)
 {
 	return (stack->top == stack->cap-1)
 }
+
 void moveDisk(char fromPeg, char toPeg, int disk)
 {
 	cout << "Move disk" << disk << "from" << fromPeg << "to" << toPeg << endl;
 }
-void moveDisksBetweenTwoPoles(struct Stack* src, struct Stack* dest, char s, char d)
-{
-	int p1topdisk = pop(src);
-	int p2topdisk = pop(dest);
 
-	if (p1topdisk == INT_MIN)
+void movediskstwo(struct Stack* src, struct Stack* dest, char a, char b )
+{
+	int p1tdisk = pop(src);
+	int p2tdisk = pop(dest);
+
+	if (p1tdisk == INT_MIN)
 	{
-		push(src, p2topdisk);
-		moveDisk(d, s, p2topdisk);
+		push(src, p2tdisk);
+		moveDisk(b, a, p2tdisk);
 	}
-	else if (p2topdisk == INT_MIN)
+	else if (p2tdisk == INT_MIN)
 	{
-		push(dest, p1topdisk);
-		moveDisk(s, d, p1topdisk);
+		push(dest, p1tdisk);
+		moveDisk(a, b, p1tdisk);
 	}
-	else if (p1topdisk > p2topdisk)
+	else if (p1tdisk > p2tdisk)
 	{
-		push(src, p1topdisk);
-		push(src, p2topdisk);
-		moveDisk(d, s, p2topdisk);
+		push(src, p1tdisk);
+		push(src, p2tdisk);
+		moveDisk(b, a, p2tdisk);
 	}
 	else
 	{
-		push(dest, p2topdisk);
-		push(dest, p1topdisk);
-		moveDisk(s, d, p1topdisk);
+		push(dest, p2tdisk);
+		push(dest, p1tdisk);
+		moveDisk(a, b, p1tdisk);
 	}
 }
-void movedisksiterative(int num_of_disks, struct Stack* src, struct Stack* aux, struct Stack* dest) {
-	int total_num_of_moves;
-	int i;
-	char s = 'X', d = 'Y', a = 'Z';
+// the final function that ties helper functions together, and moves the disks iteratively
 
-	if (num_of_disks % 2 == 0) {
+
+void movedisksiterative(int diskcount1, struct Stack* src, struct Stack* aux, struct Stack* dest) {
+	// local vars
+	int totalmoves;
+	int iterator;
+	char s = '', d = 'Y', a = 'Z';
+
+
+
+	if (diskcount1 % 2 == 0) {
 		char temp = d;
 		d = a;
 		a = temp;
 	}
-	total_num_of_moves = pow(2, num_of_disks) - 1;
+	totalmoves = pow(2, diskcount1) - 1;
 
-	for (i = num_of_disks; i >= 1; i--) {
+	for (iterator = diskcount1; iterator >= 1; i--) {
 		push(src, i);
 	}
 
-	for (i = 1; i <= total_num_of_moves; i++) {
-		if (i % 3 == 1) {
-			moveDisksBetweenTwoPoles(src, dest, s, d);
+	for (iterator = 1; i <= totalmoves; i++) {
+		if (iterator % 3 == 1) {
+			movediskstwo(src, dest, s, d);
 		}
 
-		else if (i % 3 == 2) {
-			moveDisksBetweenTwoPoles(src, aux, s, a);
+		else if (iterator % 3 == 2) {
+			movediskstwo(src, aux, s, a);
 		}
 
-		else if (i % 3 == 0) {
-			moveDisksBetweenTwoPoles(aux, dest, a, d);
+		else if (iterator % 3 == 0) {
+			movediskstwo(aux, dest, a, d);
 		}
 	}
 }
 
 int main()
 {
-	const int NUMDISKS = 5;
-	const int FROMPEG = 1;
-	const int TOPEG = 3;
-	const int TEMPPEG = 2;
-	auto start = std::chrono::steady_clock::now();
-	moveDisksrecur(NUMDISKS, FROMPEG, TOPEG, TEMPPEG);
-	auto end = std::chrono::steady_clock::now();
-	std::chrono::duration<double> elapsed_seconds = end - start;
-	cout << "All the pegs are moved recursively, with a time of " << elapsed_seconds.count() << "s"<< endl;
+	int dec = 0;
+	int disks = 0;
+	cout << "Please select whether you would like to do solve the Towers of Hanoi Problem recursively, iteratively, or exit the menu!" << endl;
+	cout << "---------------------------------------------------------------------" << endl;
+	cout << "1. Solve Iteratively" << endl;
+	cout << "2. Solve Recursively" << endl;
+	cout << "3. Exit" << endl;
+	cin >> dec;
+	switch (dec)
+	{
+	case 1:
+		cout << "You have chosen the Iterative method!" << endl;
+		cout << "Please enter the number of disks you wish to solve the towers of Hanoi for." << endl;
+		cin >> disks;
+		auto start = chrono::steady_clock::now();
+		A = create(disks);
+		B = create(disks);
+		C = create(disks);
+		movedisksiterative(disks, A, B, C);
+		auto end = chrono::steady_clock::now();
+		cout << endl;
+		break;
+
+	case 2:
+		cout << "You have chosen the Recursive method!" << endl;
+		cout << "Please enter the number of disks you wish to solve the towers of Hanoi for." << endl;
+		cin >> disks;
+		auto start = chrono::steady_clock::now();
+		movedisksiterative(disks, 'A', 'B', 'C');
+		auto end = chrono::steady_clock::now();
+		cout << endl;
+		break;
+	case 3:
+		cout << "Thanks for using this towers of Hanoi program!" << endl;
+		return 1;
+	default:
+		cout << "try another number, you have made an invalid selection" << endl;
+		break;
+
+	}
+
 }
 void moveDisksrecur(int num, int fromPeg, int toPeg, int tempPeg)
 {
@@ -133,4 +178,3 @@ void moveDisksrecur(int num, int fromPeg, int toPeg, int tempPeg)
 		moveDisksrecur(num - 1, tempPeg, toPeg, fromPeg);
 	}
 }
-//void moveDisksiter
