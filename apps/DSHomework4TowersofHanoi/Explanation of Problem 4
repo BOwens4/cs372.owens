@@ -1,0 +1,7 @@
+This is my explanation for problem 4
+There is absolutely no way i could get 100 or a 1000 disks to run in my computer, after 20, it does not work.
+This is not a good idea to test, because after about 20 disks, the amount of moves becomes insanely high.
+There are youtube videos of this game with below this amount of moves that exceed a couple hours long
+recursive and iterative methods really work best with small increments, after you exceed that limit, it takes too
+much processing power.
+I also attached my graph to the docs folder in my github
