@@ -1,0 +1,2 @@
+My guess for the Big Oh of this algorithim is that it is an O(c^n) algorithim or Exponential algorithim considering its complexity
+and the fact that we are finding the subsets of a 2d array for multiple sizes, which fits the definition "Enumerating all subsets of n items".
