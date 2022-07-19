@@ -26,7 +26,7 @@ public:
 		return Tree(root->left);
 	};
 	Tree& Tree::right() const {
-		return Tree(root-> right);
+		return Tree(root->right);
 	}
 	bool Tree::member(V x)const {
 		if (isEmpty())
@@ -38,5 +38,20 @@ public:
 			return right().member(x);
 		else
 			return true;
+	}
+	Tree Tree::insert(V x) const {
+		if (isEmpty())
+		{
+			return Tree(Tree(), x, Tree());
+			T y = root();
+			if (x < y)
+			{
+				return Tree(left().insert(x), y, right());
+			}
+			else if (y < x)
+				return Tree(left(), y, right().insert(x));
+			else
+				return *this;
+		}
 	}
 };
