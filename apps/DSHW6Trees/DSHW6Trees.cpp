@@ -57,6 +57,7 @@ void fillsortinsert(vector<T>& vector1, int num, Tree<T>* y)
 int main(vector<T>& vector1)
 {
 	int size = 0;
+	double temp = 0;
 	list<int> sizes = { 1000,2500,5000,10000,50000};
 	auto start = chrono::steady_clock::now();
 	auto end = chrono::steady_clock::now();
@@ -65,7 +66,13 @@ int main(vector<T>& vector1)
 	for (auto size : sizes)
 	{
 		vector1<int>(size);
+		for (int i = 0; i < 100; i++)
+		{
+			vector<int>(rand());
+		}
 		start = chrono::steady_clock::now();
 
 	}
 }
+// This is where I dont understand. I understood that we should use the same sort of method as the big oh assignment to loop through all the
+//lookup times, but implementing the code I have to work with inserting to the tree and comparing that to just traditonal binary search isnt clear to me
