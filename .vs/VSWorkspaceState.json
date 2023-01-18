@@ -2,9 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\apps",
-    "\\apps\\DSHomework4TowersofHanoi",
-    "\\apps\\DSHomework5TheBigOHProb1"
+    "\\apps\\FinalExam",
+    "\\CryptographyHW1Owens",
+    "\\CryptographyHW2Owens",
+    "\\CryptographyHW3Owens",
+    "\\CryptographyHW4Owens",
+    "\\FinalExam2",
+    "\\FinalExam3",
+    "\\include"
   ],
-  "SelectedNode": "\\apps\\DSHomework5TheBigOHProb1\\DSHomework5TheBigOHProb1.cpp",
+  "SelectedNode": "\\CryptographyHW4Owens\\CryptographyHW4Owens.vcxproj",
   "PreviewInSolutionExplorer": false
 }
