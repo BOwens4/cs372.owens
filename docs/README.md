@@ -1,5 +1,9 @@
 Braden Owens
+
+
 I am a team-oriented individual with development experience in C++, Python, and working with MatLab.  I am passionate about seeing a project evolve from idea inception to working deliverables.  I have patience in working through some of the most tedious tasks and have developed this skill through my passion for fishing and hunting, where patience is key.
+
+
 I am a junior at Athens State, and this repository demonstrates some of the code that I have done throughout my course work at Athens. I mainly work in c++.
 
 # Folder Structure
