@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\apps",
-    "\\apps\\FinalExam",
-    "\\CryptographyHW1Owens",
-    "\\CryptographyHW2Owens",
-    "\\CryptographyHW3Owens",
+    "\\ArrayPermutation",
+    "\\ConsoleApplication1",
     "\\CryptographyHW4Owens",
-    "\\FinalExam2",
     "\\FinalExam3",
-    "\\include"
+    "\\include",
+    "\\OperatingSystemHW1-Owens",
+    "\\OperatingSystemsHW1DRLEWIS",
+    "\\Random Function",
+    "\\RandomSample"
   ],
-  "SelectedNode": "\\CryptographyHW4Owens\\CryptographyHW4Owens.vcxproj",
+  "SelectedNode": "\\ArrayPermutation\\ArrayPermutation.vcxproj",
   "PreviewInSolutionExplorer": false
 }

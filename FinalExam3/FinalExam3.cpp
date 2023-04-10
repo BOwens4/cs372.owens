@@ -65,3 +65,6 @@ int main()
 {
     return 0;
 }
+
+
+https://www.reddit.com/r/cpp_questions/comments/wztagx/how_to_split_a_string_with_multiple_delimiters_in/
